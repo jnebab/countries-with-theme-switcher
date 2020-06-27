@@ -3,13 +3,13 @@ import styled from "styled-components";
 import theme from "styled-theming";
 
 const navBGColor = theme("mode", {
-  light: "hsl(0, 0%, 98%)",
-  dark: "hsl(207, 26%, 17%)",
+  light: "var(--white)",
+  dark: "var(--dark-blue)",
 });
 
 const navColor = theme("mode", {
-  light: "hsl(200, 15%, 8%)",
-  dark: "hsl(0, 0%, 100%)",
+  light: "var(--very-dark-blue-light)",
+  dark: "var(--very-light-gray)",
 });
 
 const Nav = styled.nav`
@@ -17,6 +17,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
   padding: 0 60px;
   @media (max-width: 375px) {
     height: 75px;
