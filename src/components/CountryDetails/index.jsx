@@ -130,7 +130,7 @@ const BackButton = styled.button`
   padding: 10px;
   border-radius: 4px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     width: 35%;
   }
 `;
@@ -138,7 +138,7 @@ const BackButton = styled.button`
 const FlagImage = styled.img`
   height: 40vh;
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     height: 26.5vh;
   }
 `;

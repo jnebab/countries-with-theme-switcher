@@ -13,6 +13,11 @@ const inputBackground = theme("mode", {
   dark: "var(--dark-blue)",
 });
 
+const inputText = theme("mode", {
+  light: "var(--dark-blue)",
+  dark: "var(--white)",
+});
+
 const FilterWrapper = styled.div`
   padding: 30px 50px;
   display: flex;
@@ -35,7 +40,7 @@ const FilterWrapper = styled.div`
     height: 30px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     flex-direction: column;
 
     input {
@@ -56,6 +61,7 @@ const SearchWrapper = styled.div`
     position: absolute;
     top: 12px;
     left: 10px;
+    color: ${inputText};
   }
 
   input {
@@ -66,6 +72,7 @@ const SearchWrapper = styled.div`
     padding-left: 30px;
     height: 40px;
     background: ${inputBackground};
+    color: ${inputText};
   }
 `;
 
@@ -118,6 +125,7 @@ export default function Filters({
         value={filter}
         placeholder="Filter by Region"
         className="region-filter"
+        isClearable
       />
     </FilterWrapper>
   );

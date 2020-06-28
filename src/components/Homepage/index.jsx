@@ -24,7 +24,7 @@ const MainWrapper = styled.main`
   color: ${mainColor};
   background: ${mainBackground};
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 40px;
   height: 100%;
   padding-bottom: 35px;
