@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import "./App.css";
+import debounce from "lodash/debounce";
+import isEmpty from "lodash/isEmpty";
 
 import Navigation from "./components/Navigation";
 import Filters from "./components/Filters";
@@ -11,6 +12,8 @@ import CountryDetails from "./components/CountryDetails";
 
 import { useQuery } from "@apollo/react-hooks";
 import { GET_ALL_COUNTRIES } from "./queries.js";
+
+import "./App.css";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -32,19 +35,25 @@ function App() {
     setFilter(selectedOption);
   };
 
-  const handleKeywordChange = (e) => setKeyword(e.target.value);
+  const handleKeywordChange = (value) => setKeyword(value);
 
   useEffect(() => {
-    if (filter !== null) {
-      refetch({
-        regionFilter: {
+    const regionFilter = !isEmpty(filter)
+      ? {
           subregion_in: {
             region_in: { name: filter?.label },
           },
-        },
-      });
-    }
-  }, [filter]);
+        }
+      : null;
+
+    const vars = !isEmpty(keyword)
+      ? {
+          regionFilter,
+          keyword,
+        }
+      : { regionFilter };
+    refetch(vars);
+  }, [filter, keyword]);
 
   return (
     <Router>

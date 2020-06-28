@@ -28,10 +28,14 @@ const MainWrapper = styled.main`
   grid-gap: 40px;
   height: 100%;
   padding-bottom: 35px;
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     height: calc(100vh - 75px);
     display: flex;
     flex-direction: column;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 

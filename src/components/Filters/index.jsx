@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
 import theme from "styled-theming";
@@ -18,16 +18,6 @@ const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   background: ${filterBackground};
-
-  input {
-    width: 35%;
-    border: none;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    padding: 0 20px;
-    height: 40px;
-    background: ${inputBackground};
-  }
 
   .region-filter {
     width: 20%;
@@ -59,12 +49,33 @@ const FilterWrapper = styled.div`
   }
 `;
 
+const SearchWrapper = styled.div`
+  position: relative;
+
+  ion-icon {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+  }
+
+  input {
+    width: 100;
+    border: none;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding-left: 30px;
+    height: 40px;
+    background: ${inputBackground};
+  }
+`;
+
 export default function Filters({
   onFilterChange,
   onKeywordChange,
   filter,
   keyword,
 }) {
+  const [searchText, setSearchText] = useState("");
   const options = [
     {
       value: "africa",
@@ -89,12 +100,18 @@ export default function Filters({
   ];
   return (
     <FilterWrapper>
-      <input
-        onChange={onKeywordChange}
-        type="text"
-        placeholder="Search for a country..."
-        value={keyword}
-      />{" "}
+      <SearchWrapper>
+        <ion-icon
+          name="search"
+          onClick={() => onKeywordChange(searchText)}
+        ></ion-icon>
+        <input
+          onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          placeholder="Search for a country..."
+          value={searchText}
+        />
+      </SearchWrapper>{" "}
       <Select
         options={options}
         onChange={onFilterChange}
