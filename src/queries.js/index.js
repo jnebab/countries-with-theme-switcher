@@ -3,8 +3,8 @@ import {
 } from "apollo-boost";
 
 export const GET_ALL_COUNTRIES = gql `
-  query countries {
-    Country(first: 20) {
+  query countries($regionFilter: _CountryFilter, $keyword: String) {
+    Country(filter: $regionFilter, name: $keyword) {
       name
       population
       capital

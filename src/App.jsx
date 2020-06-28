@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -17,9 +17,7 @@ function App() {
   const [filter, setFilter] = useState(null);
   const [keyword, setKeyword] = useState("");
 
-  const { loading, error, data } = useQuery(GET_ALL_COUNTRIES, {
-    variables: { filter, keyword },
-  });
+  const { loading, error, data, refetch } = useQuery(GET_ALL_COUNTRIES);
 
   const handleSwitchTheme = () => {
     setTheme((old) => {
@@ -35,6 +33,18 @@ function App() {
   };
 
   const handleKeywordChange = (e) => setKeyword(e.target.value);
+
+  useEffect(() => {
+    if (filter !== null) {
+      refetch({
+        regionFilter: {
+          subregion_in: {
+            region_in: { name: filter?.label },
+          },
+        },
+      });
+    }
+  }, [filter]);
 
   return (
     <Router>

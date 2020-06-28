@@ -13,7 +13,7 @@ const inputBackground = theme("mode", {
   dark: "var(--dark-blue)",
 });
 
-const FilterWrapper = styled.div `
+const FilterWrapper = styled.div`
   padding: 30px 50px;
   display: flex;
   justify-content: space-between;
@@ -45,7 +45,7 @@ const FilterWrapper = styled.div `
     height: 30px;
   }
 
-  @media(max-width: 375px) {
+  @media (max-width: 375px) {
     flex-direction: column;
 
     input {
@@ -53,9 +53,9 @@ const FilterWrapper = styled.div `
     }
 
     .region-filter {
-    width: 70%;
-    margin-top: 30px;
-  }
+      width: 70%;
+      margin-top: 30px;
+    }
   }
 `;
 
@@ -65,52 +65,43 @@ export default function Filters({
   filter,
   keyword,
 }) {
-  const options = [{
+  const options = [
+    {
       value: "africa",
-      label: "Africa"
+      label: "Africa",
     },
     {
-      value: "america",
-      label: "America"
+      value: "americas",
+      label: "Americas",
     },
     {
       value: "asia",
-      label: "Asia"
+      label: "Asia",
     },
     {
       value: "europe",
-      label: "Europe"
+      label: "Europe",
     },
     {
       value: "oceania",
-      label: "Oceania"
+      label: "Oceania",
     },
   ];
-  return ( <
-    FilterWrapper >
-    <
-    input onChange = {
-      onKeywordChange
-    }
-    type = "text"
-    placeholder = "Search for a country..."
-    value = {
-      keyword
-    }
-    /> <
-    Select options = {
-      options
-    }
-    onChange = {
-      onFilterChange
-    }
-    value = {
-      filter
-    }
-    placeholder = "Filter by Region"
-    className = "region-filter" /
-    >
-    <
-    /FilterWrapper>
+  return (
+    <FilterWrapper>
+      <input
+        onChange={onKeywordChange}
+        type="text"
+        placeholder="Search for a country..."
+        value={keyword}
+      />{" "}
+      <Select
+        options={options}
+        onChange={onFilterChange}
+        value={filter}
+        placeholder="Filter by Region"
+        className="region-filter"
+      />
+    </FilterWrapper>
   );
 }
