@@ -5,6 +5,8 @@
   --dark-gray: hsl(0, 0%, 52%);
   --very-light-gray: hsl(0, 0%, 98%);
   --white: hsl(0, 0%, 100%);
+  --shadow-light: 0 1px 5px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 * {

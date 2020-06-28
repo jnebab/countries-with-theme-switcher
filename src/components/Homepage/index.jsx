@@ -91,14 +91,13 @@ export default function Homepage({ data, loading, error }) {
     return (
       <MainWrapper>
         {data?.Country?.map((ctr, index) => (
-          <CountryWrapper key={index}>
-            <FlagImage
-              src={ctr?.flag?.svgFile}
-              alt={ctr.name}
-              onClick={() => {
-                history.push(`/${ctr?.name}`);
-              }}
-            />
+          <CountryWrapper
+            key={index}
+            onClick={() => {
+              history.push(`/${ctr?.name}`);
+            }}
+          >
+            <FlagImage src={ctr?.flag?.svgFile} alt={ctr.name} />
             <h3>{ctr?.name}</h3>
             <p>
               Population: <span>{ctr?.population}</span>
