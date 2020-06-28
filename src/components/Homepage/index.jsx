@@ -26,16 +26,11 @@ const MainWrapper = styled.main`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 40px;
-  height: 100%;
-  padding-bottom: 35px;
-  @media (max-width: 480px) {
-    height: calc(100vh - 75px);
-    display: flex;
-    flex-direction: column;
-  }
+  min-height: 100vh;
 
   @media (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -71,9 +66,6 @@ const CountryWrapper = styled.div`
 
   p > span {
     font-weight: 300;
-  }
-
-  @media (max-width: 375px) {
   }
 `;
 

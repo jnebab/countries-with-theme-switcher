@@ -35,8 +35,8 @@ const CountryWrapper = styled.div`
   height: calc(100vh - 60px);
   color: ${countryColor};
 
-  @media (max-width: 375px) {
-    height: calc(100vh - 75px);
+  @media (max-width: 800px) {
+    height: 100vh;
   }
 `;
 
@@ -45,7 +45,7 @@ const DetailsWrapper = styled.div`
   align-items: center;
   margin-top: 40px;
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -57,7 +57,7 @@ const InfoWrapper = styled.div`
   margin-left: 50px;
   text-align: left;
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     margin-left: 0;
   }
 `;
@@ -79,7 +79,7 @@ const ContentWrapper = styled.div`
     text-align: left;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     flex-direction: column;
 
     div:last-child {
@@ -90,7 +90,7 @@ const ContentWrapper = styled.div`
 
 const BordersWrapper = styled.div`
   display: flex;
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
@@ -101,7 +101,7 @@ const CountryName = styled.div`
   font-size: 1.3em;
   font-weight: 800;
 
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     margin-top: 30px;
     margin-bottom: 0;
   }
@@ -139,7 +139,7 @@ const FlagImage = styled.img`
   height: 40vh;
 
   @media (max-width: 800px) {
-    height: 26.5vh;
+    height: 20vh;
   }
 `;
 

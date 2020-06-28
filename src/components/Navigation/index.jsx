@@ -19,7 +19,7 @@ const Nav = styled.nav`
   align-items: center;
   height: 60px;
   padding: 0 60px;
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     height: 75px;
     padding: 0 20px;
   }
@@ -27,7 +27,7 @@ const Nav = styled.nav`
 
 const Heading = styled.h1`
   color: ${navColor};
-  @media (max-width: 375px) {
+  @media (max-width: 800px) {
     font-size: 14px;
   }
 `;
