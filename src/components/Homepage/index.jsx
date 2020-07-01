@@ -26,12 +26,12 @@ const MainWrapper = styled.main`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 40px;
-  min-height: 100vh;
-
+  
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     grid-gap: 0;
+    height: 100%;
   }
 `;
 

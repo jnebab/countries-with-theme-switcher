@@ -35,7 +35,7 @@ const CountryWrapper = styled.div`
   color: ${countryColor};
 
   @media (max-width: 800px) {
-    height: 100vh;
+    height: 100%;
   }
 `;
 
