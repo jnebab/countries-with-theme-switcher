@@ -31,6 +31,7 @@ const MainWrapper = styled.main`
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
+    grid-gap: 0;
   }
 `;
 
@@ -66,6 +67,10 @@ const CountryWrapper = styled.div`
 
   p > span {
     font-weight: 300;
+  }
+
+  @media(max-width: 800px) {
+    margin-top: 30px;
   }
 `;
 
