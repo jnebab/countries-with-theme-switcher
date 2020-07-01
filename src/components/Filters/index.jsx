@@ -15,8 +15,16 @@ const inputBackground = theme("mode", {
 
 const inputText = theme("mode", {
   light: "var(--dark-blue)",
-  dark: "var(--white)",
+  dark: "var(--very-light-gray)",
 });
+
+const dropdownSelectStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: inputText,
+    backgroundColor: inputBackground
+  }),
+}
 
 const FilterWrapper = styled.div`
   padding: 30px 50px;
@@ -31,13 +39,22 @@ const FilterWrapper = styled.div`
 
   .region-filter > div {
     background: ${inputBackground};
-    height: 30px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     border: none;
+    color: ${inputText};
+  }
+
+  .region-filter .region-select__single-value  {
+    color: ${inputText};
+  }
+
+  .region-filter .region-select__indicator-separator {
+    display: none;
   }
 
   .region-filter input {
     height: 30px;
+    color: ${inputText};
   }
 
   @media (max-width: 480px) {
@@ -124,11 +141,13 @@ export default function Filters({
         />
       </SearchWrapper>{" "}
       <Select
+       styles={dropdownSelectStyles}
         options={options}
         onChange={onFilterChange}
         value={filter}
         placeholder="Filter by Region"
         className="region-filter"
+        classNamePrefix="region-select"
         isClearable
       />
     </FilterWrapper>
