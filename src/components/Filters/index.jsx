@@ -57,7 +57,7 @@ const FilterWrapper = styled.div`
     color: ${inputText};
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 767.98px) {
     flex-direction: column;
 
     input {
@@ -73,7 +73,7 @@ const FilterWrapper = styled.div`
 
 const SearchWrapper = styled.div`
   position: relative;
-  width: 20%;
+  width: 40%;
 
   ion-icon {
     position: absolute;
@@ -93,8 +93,12 @@ const SearchWrapper = styled.div`
     color: ${inputText};
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 767.98px) {
     width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    width: 40%;
   }
 `;
 
