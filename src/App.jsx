@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import debounce from "lodash/debounce";
 import isEmpty from "lodash/isEmpty";
 
 import Navigation from "./components/Navigation";

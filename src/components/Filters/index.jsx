@@ -56,6 +56,7 @@ const FilterWrapper = styled.div`
 
 const SearchWrapper = styled.div`
   position: relative;
+  width: 20%;
 
   ion-icon {
     position: absolute;
@@ -65,7 +66,7 @@ const SearchWrapper = styled.div`
   }
 
   input {
-    width: 100;
+    width: 100%;
     border: none;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
@@ -74,13 +75,16 @@ const SearchWrapper = styled.div`
     background: ${inputBackground};
     color: ${inputText};
   }
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export default function Filters({
   onFilterChange,
   onKeywordChange,
   filter,
-  keyword,
 }) {
   const [searchText, setSearchText] = useState("");
   const options = [
