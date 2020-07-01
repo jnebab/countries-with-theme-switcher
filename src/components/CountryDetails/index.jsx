@@ -33,10 +33,6 @@ const CountryWrapper = styled.div`
   background: ${countryBackground};
   height: calc(100vh - 60px);
   color: ${countryColor};
-
-  @media (max-width: 800px) {
-    height: 100%;
-  }
 `;
 
 const DetailsWrapper = styled.div`
@@ -44,7 +40,7 @@ const DetailsWrapper = styled.div`
   align-items: center;
   margin-top: 40px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 991.98px) { 
     flex-direction: column;
     align-items: flex-start;
   }
