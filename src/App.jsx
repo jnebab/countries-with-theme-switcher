@@ -10,8 +10,7 @@ import Filters from "./components/Filters";
 import Homepage from "./components/Homepage";
 import CountryDetails from "./components/CountryDetails";
 
-import { useQuery } from "@apollo/react-hooks";
-import { GET_ALL_COUNTRIES } from "./queries.js";
+import { useGetCountries } from "./queries/index.js";
 
 import "./App.css";
 
@@ -20,7 +19,7 @@ function App() {
   const [filter, setFilter] = useState(null);
   const [keyword, setKeyword] = useState("");
 
-  const { loading, error, data, refetch } = useQuery(GET_ALL_COUNTRIES);
+  const { loading, error, data, refetch } = useGetCountries();
 
   const handleSwitchTheme = () => {
     setTheme((old) => {
@@ -53,7 +52,7 @@ function App() {
         }
       : { regionFilter };
     refetch(vars);
-  }, [filter, keyword]);
+  }, [filter, keyword, refetch]);
 
   return (
     <Router>

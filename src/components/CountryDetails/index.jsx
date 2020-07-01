@@ -1,11 +1,10 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
 
 import styled from "styled-components";
 import theme from "styled-theming";
 
-import { GET_COUNTRY } from "../../queries.js";
+import { useGetCountry } from '../../queries'
 
 const countryBackground = theme("mode", {
   light: "var(--very-light-gray)",
@@ -146,11 +145,7 @@ const FlagImage = styled.img`
 export default function CountryDetails(props) {
   const { name } = useParams();
   const history = useHistory();
-  const { data, loading, error } = useQuery(GET_COUNTRY, {
-    variables: {
-      countryName: name,
-    },
-  });
+  const { data, loading, error } = useGetCountry(name)
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
